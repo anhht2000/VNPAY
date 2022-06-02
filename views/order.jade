@@ -8,10 +8,11 @@ block content
         form#createOrder(action='create_payment_url', method='POST')
             div.form-group
                 label Loại hàng hóa
+                //- input.form-control#orderType(name='orderType', placeholder='Số tiền', value=fashion)
                 select.form-control#orderType(name='orderType')
-                    option(value='topup') Nạp tiền điện thoại
-                    option(value='billpayment') Thanh toán hóa đơn
                     option(value='fashion') Thời trang
+                    //- option(value='topup') Nạp tiền điện thoại
+                    //- option(value='billpayment') Thanh toán hóa đơn
             div.form-group
                 label Số tiền
                 input.form-control#amount(name='amount', placeholder='Số tiền', value=amount)
@@ -21,9 +22,8 @@ block content
             div.form-group
                 label Ngân hàng
                 select.form-control#bankCode(name='bankCode')
-                    option(value='') Không chọn
-                    option(value='VNPAYQR') Ngân hàng VNPAYQR
                     option(value='NCB') Ngân hàng NCB
+                    option(value='VNPAYQR') Ngân hàng VNPAYQR
                     option(value='SCB') Ngân hàng SCB
                     option(value='SACOMBANK') Ngân hàng SACOMBANK
                     option(value='EXIMBANK') Ngân hàng EXIMBANK
@@ -53,7 +53,7 @@ block content
                     option(value='en') English
             button.btn.btn-default#btnPopup(type='submit') Thanh toán
     p&nbsp;
-    
+
     //Neu dung Redirect thi khong can cac thu vien ben duoi
 //    link(rel='stylesheet', href='https://pay.vnpay.vn/lib/vnpay/vnpay.css')
 //    script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js')

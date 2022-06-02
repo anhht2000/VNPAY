@@ -17,7 +17,7 @@ router.get('/create_payment_url', function (req, res, next) {
     var dateFormat = require('dateformat');
     var date = new Date();
 
-    var desc = 'Thanh toan don hang thoi gian: ' + dateFormat(date, 'yyyy-mm-dd HH:mm:ss');
+    var desc = 'Thanh toán đơn hàng tại yolo ngày : ' + dateFormat(date, 'yyyy-mm-dd HH:mm:ss');
     res.render('order', {title: 'Tạo mới đơn hàng', amount: 10000, description: desc})
 });
 
@@ -77,6 +77,8 @@ router.post('/create_payment_url', function (req, res, next) {
     var signed = hmac.update(new Buffer(signData, 'utf-8')).digest("hex"); 
     vnp_Params['vnp_SecureHash'] = signed;
     vnpUrl += '?' + querystring.stringify(vnp_Params, { encode: false });
+
+    console.log('resss',vnpUrl);
 
     res.redirect(vnpUrl)
 });
